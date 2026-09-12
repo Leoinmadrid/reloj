@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 id="hora"></h1>
+
+<script>
+function actualizarHora() {
+    document.getElementById("hora").textContent =
+        new Date().toLocaleTimeString("es-ES", {
+            timeZone: "Europe/Madrid",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: false
+        });
+}
+
+actualizarHora();
+setInterval(actualizarHora, 1000);
+</script>
+
+</body>
+</html>
