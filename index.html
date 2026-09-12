@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html>
-<body>
-
-<h1 id="hora"></h1>
-
-<script>
-function actualizarHora() {
-    document.getElementById("hora").textContent =
-        new Date().toLocaleTimeString("es-ES", {
-            timeZone: "Europe/Madrid",
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-            hour12: false
-        });
-}
-
-actualizarHora();
-setInterval(actualizarHora, 1000);
-</script>
-
-</body>
+<html lang="es"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Reloj de Leo</title> 
+        <style> 
+            body{margin:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+            #reloj{font-size:18vw}
+            #qr{margin-top:30px;background:white;padding:10px}
+            #qr img{width:150px;height:150px;display:block} 
+            #qr p{color:black;margin:8px 0 0 0;font-size:14px}
+        </style>
+    </head>
+    <body>
+        <div id="reloj">--:--:--</div>
+        <div id="qr">
+            <!-- CAMBIA ESTA IMAGEN POR TU QR --> 
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://leoinmadrid.github.io/reloj"> 
+            <p>leoinmadrid.github.io/reloj</p> 
+        </div> 
+        <script>
+            function actualizar(){ const a=new Date(); document.getElementById("reloj").textContent=a.toLocaleTimeString("es-ES"); } 
+            setInterval(actualizar,1000); actualizar();
+        </script> 
+    </body> 
 </html>
